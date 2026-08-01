@@ -1,10 +1,12 @@
-import  {config} from 'dotenv'
+import { config } from "dotenv";
 
- config()
+config();
 
- const envConfig={
-    port:process.env.PORT,
-    mongodbString:process.env.MONGO_URL
- }
+const envConfig = {
+  port: process.env.PORT,
+  mongodbString: process.env.MONGO_URL,
+  backendUrl: process.env.BACKEND_URL,
+  environment: process.env.NODE_ENV,
+};
 
- export default envConfig
+export default envConfig;
