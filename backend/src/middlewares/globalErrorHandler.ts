@@ -1,7 +1,6 @@
 import type { NextFunction, Request, Response } from "express";
 import type { HttpError } from "http-errors";
 import envConfig from "../config/config.js";
-import type { glob } from "node:fs";
 
 const globalErrorHandler = (
   err: HttpError,

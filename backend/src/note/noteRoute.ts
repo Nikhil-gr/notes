@@ -1,8 +1,9 @@
 import express from "express";
 import { createNote } from "./noteController.js";
+import { multer, storage } from "../middlewares/multerMiddlewares.js";
 
 const noteRoute = express.Router();
-
-noteRoute.route("/").post(createNote);
+const upload = multer({ storage: storage });
+noteRoute.route("/").post(upload.single("file"), createNote);
 
 export default noteRoute;
