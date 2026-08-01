@@ -51,6 +51,10 @@ const listNote = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { id } = req.params;
     const note = await noteModel.findById(id);
+
+    if (!note) {
+      return next(createHttpError(404, "Note not found"));
+    }
     res.status(200).json({
       message: "Note listed!",
       data: note,
